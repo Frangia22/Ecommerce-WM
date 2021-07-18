@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="principal" id="content">
+        <div class="breadcrumbs">
+            <ul class="list-bread">
+                <li class="bread-item"><a href="../" class="bread-item-link space">Inicio</a></li>
+                <li class="bread-item"><span class="bread-item-span">></span></li>
+                <li class="bread-item"><a href="/about_me" class="bread-item-link active">Sobre nosotros</a></li>
+            </ul>
+        </div>
+        <div class="card-about">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOnWhqAj8DwGFb9JXutaRBUnjwWyAYJpKD2r-75KvVdtiNqbeZ824glN4hmemA6CDAoeU&usqp=CAU" class="img-fluid" alt="">
+            <div class="card-about-body">
+                <p class="card-about-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis labore veniam fugit explicabo magnam repudiandae quos aliquam sit possimus aperiam, fugiat accusamus provident neque error similique, dolores pariatur harum corporis.</p>
+                <p class="card-about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum cum velit veritatis perspiciatis dolorum, earum reiciendis deserunt repudiandae. Quae a quidem quibusdam, expedita culpa commodi assumenda officiis sapiente cumque architecto.</p>
+                <p class="card-about-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis voluptatibus voluptate sequi ea exercitationem molestias ratione, perspiciatis quas, nobis assumenda tenetur recusandae aspernatur aut rem debitis perferendis laudantium. Optio, nisi!</p>
+            </div>
+        </div>
+        <%- include('../partials/shop_info') %>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>
+</body>
+</html>

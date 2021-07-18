@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <%- include('./partials/nav') %>
+<main class="principal" id="content">
+    <!-- Slider main container -->
+  <div class="swiper-container" id="swiperCont">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img class="img-slider" src="https://bwht.org/wp-content/uploads/placeholder-1000-300.gif" alt=""></div>
+      <div class="swiper-slide"><img class="img-slider" src="https://bwht.org/wp-content/uploads/placeholder-1000-300.gif" alt=""></div>
+      <div class="swiper-slide"><img class="img-slider" src="https://bwht.org/wp-content/uploads/placeholder-1000-300.gif" alt=""></div>
+      
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+  
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  
+  </div><!-- Cierra el carousel -->
+  <%- include('./partials/shop_info') %><!-- Cierra el info -->
+  <div class="container">
+      <div class="header-subtitle">
+          <ul class="subtitle-list">
+              <li class="subtitle-item"><h1 class="subtitle-item-link">Nuestros productos</h1></li>
+              <li class="subtitle-item"><a href="/products" class="subtitle-item-link link-v-m">Ver más</a></li>
+          </ul>
+      </div>
+  </div><!-- Cierra el subtitle -->
+  <div class="container">
+      <div class="product">
+          <div class="card">
+              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
+              <div class="card-body">
+                  <h2 class="card-title">Nombre del producto</h2>
+                  <p class="card-text">Precio</p>
+              </div>
+          </div>
+          <div class="card">
+              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
+              <div class="card-body">
+                  <h2 class="card-title">Nombre del producto</h2>
+                  <p class="card-text">Precio</p>
+              </div>
+          </div>
+          <div class="card">
+              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
+              <div class="card-body">
+                  <h2 class="card-title">Nombre del producto</h2>
+                  <p class="card-text">Precio</p>
+              </div>
+          </div>
+      </div>
+  </div><!-- Cierra el card-product -->
+</main> <!-- Cierra main -->
+<%- include('./partials/footer') %>
+  <script src="/javascripts/effects.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+      let slider = document.querySelector("#swiperCont");
+      const swiper = new Swiper(slider, {
+      // Optional parameters
+      speed: 400,
+      effect: 'flip',
+      direction: 'horizontal',     
+      // If we need pagination
+      pagination: {
+          el: '.swiper-pagination',
+          dinamicBullets: true,
+          clickable: true,
+      },
+      // Navigation arrows
+      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+      },
+      zoom: true,
+      keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+      },
+      autoplay: {
+          delay: 3000,
+      },
+      loop: true,
+      });
+  </script>
+</body>
+</html>

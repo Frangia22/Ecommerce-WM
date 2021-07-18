@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="principal" id="content">
+        <div class="breadcrumbs">
+            <ul class="list-bread">
+                <li class="bread-item"><a href="../" class="bread-item-link space">Inicio</a></li>
+                <li class="bread-item"><span class="bread-item-span">></span></li>
+                <li class="bread-item"><a href="/products" class="bread-item-link active">Productos</a></li>
+            </ul>
+            <div class="order-by">
+                <label for="order-by" class="by">Ordenar por: </label>
+                <select class="select-order" id="order-by">
+                    <option value="price-ascending">Precio: Menor a Mayor</option>
+                    <option value="price-descending">Precio: Mayor a Menor</option>
+                    <option value="created-ascending">Mas viejo a mas nuevo</option>
+                    <option value="created-descending">Mas nuevo a mas viejo</option>
+                    <option value="best-selling">Mas vendidos</option>
+                </select>
+            </div>
+            <div class="filter-btn">
+                <button class="btn-filter" type="submit" id="menuFilter">Filtrar</button>
+            </div>
+        </div>
+        <div class="principal-products">
+            <div class="category" id="filter">
+                <h1 class="title-category">Categorias</h1>
+                <ul class="list-category">
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 1</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 2</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 3</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 4</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 5</a></li>
+                </ul>
+                <h1 class="title-category">Filtros</h1>
+                <h2 class="subtitle-filter">Filtro 1</h2>
+                <ul class="list-filter">
+                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-1"><label class="item-filter-label" for="filtro-1">Filtro 1</label></li>
+                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-2"><label class="item-filter-label" for="filtro-2">Filtro 2</label></li>
+                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-3"><label class="item-filter-label" for="filtro-3">Filtro 3</label></li>
+                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-4"><label class="item-filter-label" for="filtro-4">Filtro 4</label></li>
+                </ul>
+                <h2 class="subtitle-filter">Precios</h2>
+                <input type="range" min="0" max="10000">
+            </div>
+            <div class="product">
+                <div class="card">
+                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
+                    <div class="card-body">
+                        <h2 class="card-title">Precio</h2>
+                        <p class="card-text">Descripción</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
+                    <div class="card-body">
+                        <h2 class="card-title">Precio</h2>
+                        <p class="card-text">Descripción</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
+                    <div class="card-body">
+                        <h2 class="card-title">Precio</h2>
+                        <p class="card-text">Descripción</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
+                    <div class="card-body">
+                        <h2 class="card-title">Precio</h2>
+                        <p class="card-text">Descripción</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Cierra principal-productos -->
+        <%- include('../partials/shop_info') %>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>
+</body>
+</html>

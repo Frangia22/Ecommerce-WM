@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="principal" id="content">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Variedad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <% wines.forEach(wine => { %>
+                <tbody>
+                    <tr>
+                        <td><%= wine.id %></td>
+                        <td><%= wine.nombre %></td>
+                        <td><%= wine.tipo %></td>
+                        <td><%= wine.variedad %></td>
+                        <td><%= wine.precio %></td>
+                        <td>
+                            <a href="">Editar</a>
+                            <a href="">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+            </table>
+            <a class="form-news-btn" href="">Agregar producto</a>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>
+</body>
+</html>

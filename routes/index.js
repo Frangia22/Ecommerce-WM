@@ -15,5 +15,8 @@ router.get('/products', async (req, res) => {
   const wines = await api.getWines();
   res.render('pages/products', { wines });
 });
-
+router.get('/products/list', async (req, res) => {
+  const wines = await api.getWines();
+  res.render('pages/productsList', { wines });
+});
 module.exports = router;

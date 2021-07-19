@@ -56,34 +56,15 @@
                 <input type="range" min="0" max="10000">
             </div>
             <div class="product">
+                <% wines.forEach(wine => { %>
                 <div class="card">
-                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
+                    <img src="<%= wine.url %>" alt="" class="img-card">
                     <div class="card-body">
-                        <h2 class="card-title">Precio</h2>
-                        <p class="card-text">Descripción</p>
+                        <h2 class="card-title">$ <%= wine.precio %></h2>
+                        <p class="card-text"><%= wine.nombre %></p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
-                    <div class="card-body">
-                        <h2 class="card-title">Precio</h2>
-                        <p class="card-text">Descripción</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
-                    <div class="card-body">
-                        <h2 class="card-title">Precio</h2>
-                        <p class="card-text">Descripción</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="" class="img-card">
-                    <div class="card-body">
-                        <h2 class="card-title">Precio</h2>
-                        <p class="card-text">Descripción</p>
-                    </div>
-                </div>
+                <% }) %>
             </div>
         </div> <!-- Cierra principal-productos -->
         <%- include('../partials/shop_info') %>

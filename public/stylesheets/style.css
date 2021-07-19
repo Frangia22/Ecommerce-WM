@@ -172,6 +172,10 @@ body{
 .card-body{
     margin: 10px auto;
 }
+.img-card{
+    width: 200px;
+    height: 200px;
+}
 .card-title{
     padding: 10px 0;
 }

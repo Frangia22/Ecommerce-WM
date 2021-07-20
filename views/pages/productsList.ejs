@@ -15,6 +15,13 @@
     <%- include('../partials/nav') %>
     <main class="principal" id="content">
         <div class="container">
+            <div class="header-subtitle">
+                <ul class="subtitle-list">
+                    <li class="subtitle-item subtitle-item-admin"><h1 class="subtitle-item-link">Panel de administracion</h1></li>
+                </ul>
+            </div>
+        </div><!-- Cierra el subtitle -->
+        <div class="container">
             <table>
                 <thead>
                     <tr>
@@ -35,14 +42,16 @@
                         <td><%= wine.variedad %></td>
                         <td><%= wine.precio %></td>
                         <td>
-                            <a href="">Editar</a>
-                            <a href="">Eliminar</a>
+                            <a class="btn btn-edit" href="#">Editar</a>
+                            <a class="btn btn-delete" href="#">Eliminar</a>
                         </td>
                     </tr>
                 </tbody>
                 <% }) %>
             </table>
-            <a class="form-news-btn" href="">Agregar producto</a>
+            <div class="add-product">
+                <a class="btn btn-add" href="">Agregar producto</a>
+            </div>
         </div>
     </main>
     <%- include('../partials/footer') %>

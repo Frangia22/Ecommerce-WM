@@ -6,13 +6,16 @@
     --black: #000000; 
     --blue: #202062;
     --dark-blue: #1e1f26;
+    --green: #01e37f;
     --light-200-green: #cff4d2;
     --light-500-green: #7be495;
     --light-700-green: #56c596;
     --lightblue: #329d9c;
+    --light-700-blue: #6495ed;
     --lightblack: #464242;
     --lightwine: #c5b68c;
-    --pinkwine: #642121;  
+    --pinkwine: #642121; 
+    --red: #ff3f40; 
     --whitewine: #f3f2de;
     --white: #f0f0f0;
 }
@@ -269,6 +272,50 @@ body{
     text-align: justify;
     margin: 5px auto;
 }
+/* --------- Panel de administracion ----------------*/
+.subtitle-item-admin{
+    text-align: center;
+}
+/* table */
+table{
+    margin: 10px auto;
+    text-align: center;
+    width: 75em;
+}
+thead {
+    background-color: var(--light-700-green);
+}
+tbody:nth-of-type(2n+1) {
+    background-color: var(--light-200-green);
+}
+th, td{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding: 5px;
+}
+/*-------- Botones ------*/
+.add-product{
+    text-align: center;    
+}
+.btn{
+    border-radius: 8px;
+    padding: 4px 10px;
+    text-decoration: none;
+}
+.btn-edit{
+    background-color: var(--green);
+    color: var(--black);
+}
+.btn-delete{
+    background-color: var(--red);
+    color: var(--black);
+}
+.btn-add{
+    background-color: var(--light-700-blue);
+    color: var(--black);
+    font-weight: bold;
+}
+/*----------- Fin del panel ----------*/
 /*------------------------------------------------------------------------------------*/
 /* ---------------------------------------- Footer --------------------- */
 .footer{

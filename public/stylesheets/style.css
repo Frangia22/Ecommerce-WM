@@ -392,6 +392,55 @@ th, td{
     border: 1px solid var(--whitewine);
 }
 /* ----------------------------------------- Fin de sobre nosotros --------------------------------------------*/
+/* ------------------------------ Formularios */
+.form-group {
+    background-color: beige;
+    display: flex;
+    flex-wrap: wrap;    
+    margin: 10px auto;
+    width: 40em;
+}
+.form-group-6, .form-group-12 {
+    padding: 0 15px;
+}
+.form-group-6{
+    width: 50%;
+}
+.form-group-12{
+    width: 100%;
+}
+.form-label{
+    display: inline-block;
+    margin: 10px 0;
+}
+.form-control{
+    background: #e6e6e6;
+    border-radius: 20px;
+    border: none;
+    display: block;
+    padding: 10px 5px;
+    margin-bottom: var(--margin-bottom);  
+    width: 100%;  
+}
+.mt-1{
+    margin: 10px auto;
+    width: 50%;
+}
+.btn-inicio{
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: none;
+    color: var(--white);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 10px 5px;
+    text-transform: uppercase;
+}
+.btn-inicio:hover{
+    background-color: var(--gray);
+    color: var(--black);
+}
+/* ----------------------------------------- Fin de sobre nosotros --------------------------------------------*/
 /* ---------------------------------------- Media queries --------------------- */
 @media (max-width: 1023px){
     /* Skip navigation */

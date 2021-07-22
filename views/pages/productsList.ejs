@@ -42,15 +42,15 @@
                         <td><%= wine.variedad %></td>
                         <td><%= wine.precio %></td>
                         <td>
-                            <a class="btn btn-edit" href="#">Editar</a>
-                            <a class="btn btn-delete" href="#">Eliminar</a>
+                            <a class="btn btn-edit" href="/editar/<%= wine.id %>">Editar</a>
+                            <a class="btn btn-delete" href="/eliminar/<%= wine.id %>">Eliminar</a>
                         </td>
                     </tr>
                 </tbody>
                 <% }) %>
             </table>
             <div class="add-product">
-                <a class="btn btn-add" href="">Agregar producto</a>
+                <a class="btn btn-add" href="/agregar">Agregar producto</a>
             </div>
         </div>
     </main>

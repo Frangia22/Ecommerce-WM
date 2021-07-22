@@ -11,8 +11,52 @@ const getWines = async () => {
         });
     return wines;
 };
-
+//Agregar un producto
+const addWines = async (nombre, tipo, precio, url, variedad, descripcion, caracteristicas) => {
+    const wine = await db.products.create({
+        nombre,
+        tipo,
+        precio,
+        url,
+        variedad,
+        descripcion,
+        caracteristicas
+    });
+    return wine;
+};
+// Traer producto selecionado por a id 
+const getWineById = async(id) => {
+    const wine = await db.products.findByPk(id)
+    .then(result => {
+        return result;
+    });
+    return wine;
+};
+//Hacer un Update con los datos que me muestra
+// Solucion error Missing parameter option where , para solucionarlo agrega todos los campos de la db que tenia que actualizar
+const updateWine = async (id, nombre, tipo, precio, url, variedad, descripcion, caracteristicas) => {
+    const wine = await db.products.update({nombre, tipo, precio, url, variedad, descripcion, caracteristicas}, {
+        where: {
+          id
+        }
+    });
+    return wine;
+};
+// Eliminar producto
+const deleteWine = async(idWine) => {
+    const wine = await db.products.destroy({
+        where: {
+            id:idWine
+        }
+    });
+    return wine;
+}
+    
 
 module.exports = {
-    getWines
+    getWines,
+    addWines,
+    updateWine, 
+    getWineById, 
+    deleteWine
 }

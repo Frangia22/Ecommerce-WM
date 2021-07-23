@@ -1,3 +1,5 @@
+const { response } = require('express');
+const fetch = require('node-fetch');
 var express = require('express');
 var router = express.Router();
 
@@ -17,6 +19,27 @@ router.get('/products', async (req, res) => {
   const wines = await api.getWines();
   res.render('pages/products', { wines });
 });
+/* ------------------------productos filtro por categoria ------------------------- */
+router.get('/products/categoriaUno', async (req, res) => {
+  const wines = await api.filterUno();
+  res.render('pages/products', { wines });
+});
+router.get('/products/categoriaDos', async (req, res) => {
+  const wines = await api.filterDos();
+  res.render('pages/products', { wines });
+});
+/* ------------------------productos ------------------------- */
+router.get('/product', async (req, res) => {
+  const response = await fetch('http://localhost:3000/javascripts/filter.js')
+  const data = await res.json()
+  //.then(response => response.json())
+  //  .then(data => console.log(data))
+  //  .catch((err) => console.log(err));
+  console.log(response);
+  res.send(response);
+  
+});
+
 /* ------------------------ Panel de administracion ------------------------- */
 router.get('/products/list', async (req, res) => {
   const wines = await api.getWines();

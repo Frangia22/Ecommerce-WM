@@ -51,12 +51,39 @@ const deleteWine = async(idWine) => {
     });
     return wine;
 }
-    
+
+
+// Filter queries  -----------------------------
+const filterUno = async () => {
+    const filterWine = await db.products.findAll({
+        where: {
+            tipo: "tinto"
+        }
+    })
+    .then(result => {
+        return result;
+    });
+    return filterWine;
+}
+
+const filterDos = async () => {
+    const filterWine = await db.products.findAll({
+        where: {
+            tipo: "blanco"
+        }
+    })
+    .then(result => {
+        return result;
+    });
+    return filterWine;
+}
 
 module.exports = {
     getWines,
     addWines,
     updateWine, 
     getWineById, 
-    deleteWine
+    deleteWine,
+    filterUno,
+    filterDos
 }

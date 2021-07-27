@@ -48,6 +48,15 @@ router.get('/filtrar', async (req, res) => {
     wineFilters 
   });
 });
+//Buscador
+router.get('/buscar', async (req, res) => {
+  // Los datos de la URL vienen en req.query
+  const wines = await api.findWineByTitle(req.query.q);
+  res.render('pages/products', {
+    wines
+  });
+  // res.send(book);
+});
 
 /* ------------------------ Panel de administracion ------------------------- */
 router.get('/products/list', async (req, res) => {

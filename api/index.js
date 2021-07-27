@@ -87,7 +87,20 @@ const getWineVariety = async () => {
     });
     return wineVariety;
 }
-
+//Buscador
+const findWineByTitle = async (query) => {
+    const wines = await db.products.findAll({
+        where: {
+            nombre: {
+                [Op.substring]: query
+            }
+        }
+    })
+    .then(result => {
+        return result;
+    });
+    return wines;
+}
 
 module.exports = {
     getWines,
@@ -97,5 +110,6 @@ module.exports = {
     deleteWine,
     filterUno,
     filterDos,
-    getWineVariety
+    getWineVariety,
+    findWineByTitle
 }

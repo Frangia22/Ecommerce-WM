@@ -45,26 +45,62 @@
                     <li class="item-category"><a href="#" class="item-category-link">Categoria 5</a></li>
                 </ul>
                 <h1 class="title-category">Filtros</h1>
-                <h2 class="subtitle-filter">Filtro 1</h2>
-                <ul class="list-filter">
-                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-1"><label class="item-filter-label" for="filtro-1">Filtro 1</label></li>
-                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-2"><label class="item-filter-label" for="filtro-2">Filtro 2</label></li>
-                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-3"><label class="item-filter-label" for="filtro-3">Filtro 3</label></li>
-                    <li class="item-filter"><input class="item-filter-input" type="checkbox" id="filtro-4"><label class="item-filter-label" for="filtro-4">Filtro 4</label></li>
-                </ul>
-                <h2 class="subtitle-filter">Precios</h2>
-                <input type="range" min="0" max="10000">
+                <% if (locals.filterVariety) { %>
+                <h2 class="subtitle-filter">Filtrar por variedad</h2>
+                <form action="/filtrar" method="get">
+                    <ul class="list-filter">
+                        <% filterVariety.forEach(variety => { %>
+                        <li class="item-filter"><input class="item-filter-input" type="checkbox" value="<%= variety.DISTINCT %>" name="variedad"><label class="item-filter-label" for="filtro-1"><%= variety.DISTINCT %></label></li>
+                        <% }) %>
+                    </ul>
+                    <h2 class="subtitle-filter">Precios</h2>
+                    <input type="range" min="0" max="10000">                    
+                    <input type="submit" value="Filtrar">
+                </form>
+                <% } %>
             </div>
             <div class="product">
-                <% wines.forEach(wine => { %>
-                <div class="card">
-                    <img src="<%= wine.url %>" alt="" class="img-card">
-                    <div class="card-body">
-                        <h2 class="card-title">$ <%= wine.precio %></h2>
-                        <p class="card-text"><%= wine.nombre %></p>
-                    </div>
-                </div>
-                <% }) %>
+                <% if (locals.wineFilters) { %>
+                    <p>Acá hay filtros <%= wineFilters %></p>                    
+                      <% wines.forEach(wine => { %>
+                        <!-- Agrego el if para solucionar el error del forEach -->
+                        <% if (wineFilters != 1 ) { %>
+                          <% if (wineFilters == wine.variedad ) { %>
+                            <div class="card">
+                                <img src="<%= wine.url %>" alt="" class="img-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">$ <%= wine.precio %></h2>
+                                    <p class="card-text"><%= wine.nombre %></p>
+                                    <p class="card-text"><%= wine.tipo %></p>
+                                </div>
+                            </div>
+                            <% } %>
+                        <% } %>
+                        <% if (wineFilters == []) { %>
+                          <% wineFilters.forEach(filter => { %>
+                            <% if (filter == wine.variedad) { %>
+                                <div class="card">
+                                    <img src="<%= wine.url %>" alt="" class="img-card">
+                                    <div class="card-body">
+                                        <h2 class="card-title">$ <%= wine.precio %></h2>
+                                        <p class="card-text"><%= wine.nombre %></p>
+                                    </div>
+                                </div>
+                            <% } %>
+                          <% }) %>
+                        <% } %>
+                      <% }) %>
+                  <% } else { %>            
+                      <% wines.forEach(wine => { %>
+                        <div class="card">
+                            <img src="<%= wine.url %>" alt="" class="img-card">
+                            <div class="card-body">
+                                <h2 class="card-title">$ <%= wine.precio %></h2>
+                                <p class="card-text"><%= wine.nombre %></p>
+                            </div>
+                        </div>
+                      <% }) %>                    
+                  <% } %>            
             </div>
         </div> <!-- Cierra principal-productos -->
         <%- include('../partials/shop_info') %>

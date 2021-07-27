@@ -30,14 +30,23 @@ router.get('/products/categoriaDos', async (req, res) => {
 });
 /* ------------------------productos ------------------------- */
 router.get('/product', async (req, res) => {
-  const response = await fetch('http://localhost:3000/javascripts/filter.js')
-  const data = await res.json()
-  //.then(response => response.json())
-  //  .then(data => console.log(data))
-  //  .catch((err) => console.log(err));
-  console.log(response);
-  res.send(response);
-  
+  const wines = await api.getWines();
+  const filterVariety = await api.getWineVariety();  
+  /*const [ filterUno ] = [filterVariety];
+  console.log(filterUno[0].DISTINCT);
+  console.log(filterUno[1]);*/
+  res.render('pages/products', { filterVariety, wines });
+});
+router.get('/filtrar', async (req, res) => {
+  const wines = await api.getWines();
+  const filterVariety = await api.getWineVariety();  
+  console.log('Resultado', req.query.variedad);
+  const wineFilters = req.query.variedad;
+  res.render('pages/products', { 
+    filterVariety, 
+    wines, 
+    wineFilters 
+  });
 });
 
 /* ------------------------ Panel de administracion ------------------------- */

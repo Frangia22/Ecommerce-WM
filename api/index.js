@@ -1,5 +1,5 @@
 // Llamo a Op para realizar queries complejas
-const { Op } = require('sequelize');
+const { sequelize, Op } = require('sequelize');
 //Importo los modelos
 const db = require('../models');
 
@@ -77,6 +77,17 @@ const filterDos = async () => {
     });
     return filterWine;
 }
+//Traigo todas las variedades de vinos
+const getWineVariety = async () => {
+    // Select Distinct('variedad') from 'products'
+    const wineVariety = await db.products.aggregate('variedad', 'DISTINCT', { plain: false 
+    })
+    .then(result => {
+        return result;
+    });
+    return wineVariety;
+}
+
 
 module.exports = {
     getWines,
@@ -85,5 +96,6 @@ module.exports = {
     getWineById, 
     deleteWine,
     filterUno,
-    filterDos
+    filterDos,
+    getWineVariety
 }

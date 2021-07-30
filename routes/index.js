@@ -7,8 +7,9 @@ var router = express.Router();
 const api = require('../api');
 
 /* GET home page. */
-router.get('/', (req, res) => {
-  res.render('index');
+router.get('/', async(req, res) => {
+  const lastWines = await api.findLastWine();
+  res.render('index',{ lastWines });
 });
 /* ----------------------- Nosotros ------------------------- */
 router.get('/about_me', (req, res) => {

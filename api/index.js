@@ -101,6 +101,17 @@ const findWineByTitle = async (query) => {
     });
     return wines;
 }
+// Traer los ultimos 8 Productos
+const findLastWine = async () => {
+    const wines = await db.products.findAll({
+        limit: 10,
+        order:[
+            ['id', 'DESC']
+        ]
+    });
+    return wines;
+
+}
 
 module.exports = {
     getWines,
@@ -111,5 +122,6 @@ module.exports = {
     filterUno,
     filterDos,
     getWineVariety,
-    findWineByTitle
+    findWineByTitle,
+    findLastWine
 }

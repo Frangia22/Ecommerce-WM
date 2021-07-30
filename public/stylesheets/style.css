@@ -182,8 +182,8 @@ body{
     margin: 10px auto;
 }
 .img-card{
-    width: 200px;
-    height: 200px;
+    width: 15em;
+    height: 12.5em;
 }
 .card-title{
     padding: 10px 0;
@@ -459,6 +459,11 @@ th, td{
     padding: 10px 5px;
     margin-bottom: var(--margin-bottom);  
     width: 100%;  
+}
+/* ------------------------------ Width y Height ----------------*/
+.w-75{
+    width: 75%;
+    margin: auto;
 }
 /* ------------------------------ Margenes y padding ----------------*/
 .mt-1{

@@ -42,28 +42,17 @@
       </div>
   </div><!-- Cierra el subtitle -->
   <div class="container">
-      <div class="product">
-          <div class="card">
-              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
-              <div class="card-body">
-                  <h2 class="card-title">Nombre del producto</h2>
-                  <p class="card-text">Precio</p>
-              </div>
-          </div>
-          <div class="card">
-              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
-              <div class="card-body">
-                  <h2 class="card-title">Nombre del producto</h2>
-                  <p class="card-text">Precio</p>
-              </div>
-          </div>
-          <div class="card">
-              <img class="img-fluid" src="https://civilrights.msu.edu/_assets/images/placeholder/placeholder-200x200.jpg" alt="">
-              <div class="card-body">
-                  <h2 class="card-title">Nombre del producto</h2>
-                  <p class="card-text">Precio</p>
-              </div>
-          </div>
+      <div class="product w-75">
+        <% lastWines.forEach(wine => { %>
+            <div class="card">
+                <img src="<%= wine.url %>" alt="" class="img-card">
+                <div class="card-body">
+                    <h2 class="card-title">$ <%= wine.precio %></h2>
+                    <p class="card-text"><%= wine.nombre %></p>
+                    <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
+                </div>
+            </div>
+          <% }) %>
       </div>
   </div><!-- Cierra el card-product -->
 </main> <!-- Cierra main -->

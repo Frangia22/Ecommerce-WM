@@ -80,7 +80,7 @@
                                     <h2 class="card-title">$ <%= wine.precio %></h2>
                                     <p class="card-text"><%= wine.nombre %></p>
                                     <p class="card-text"><%= wine.tipo %></p>
-                                    <button class="btn btn-products"><a href="/" class="card-text">Comprar</a></button>                                    
+                                    <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>                                    
                                 </div>
                             </div>
                             <% } %>
@@ -93,7 +93,7 @@
                                     <div class="card-body">
                                         <h2 class="card-title">$ <%= wine.precio %></h2>
                                         <p class="card-text"><%= wine.nombre %></p>
-                                        <button class="btn btn-products"><a href="/" class="card-text">Comprar</a></button>
+                                        <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                                     </div>
                                 </div>
                             <% } %>
@@ -107,7 +107,7 @@
                             <div class="card-body">
                                 <h2 class="card-title">$ <%= wine.precio %></h2>
                                 <p class="card-text"><%= wine.nombre %></p>
-                                <button class="btn btn-buy"><a href="/" class="bread-item-link active card-text">Comprar</a></button>
+                                <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                             </div>
                         </div>
                       <% }) %>                    
@@ -118,6 +118,5 @@
     </main>
     <%- include('../partials/footer') %>
     <script src="/javascripts/effects.js"></script>
-    <script src="/javascripts/filter.js"></script>
 </body>
 </html>

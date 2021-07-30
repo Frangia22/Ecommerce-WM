@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="container" id="content">
+        <div class="card-product">
+            <div class="card-img-product">
+                <img class="img-product" src="<%= wine.url %>" alt="">
+            </div>
+            <div class="card-body">
+                <h1 class="py-2"><%= wine.nombre %></h1>
+                <h2 class="py-2"><strong>$</strong> <%= wine.precio %></h2>
+                <p class="py-2"><strong>Tipo de vino</strong></p>
+                <p class="py-2"><%= wine.tipo %></p>
+                <p class="py-2"><strong>Variedad</strong></p>
+                <p class="py-2"><%= wine.variedad %></p>
+                <p class="py-2"><strong>Descripcion</strong></p>
+                <ul class="contact-list">
+                <% wine.descripcion.split(",").forEach(item => {  %>
+                    <% if (item != "") { %>
+                        <li class="contact-item py-2"><span class="px-2">&#127863;</span><%= item %></li>
+                    <% } else {%>
+                        <li class="contact-item"><span class="px-2">&#10006;</span>No fueron especificadas</li>
+                    <% } %>
+                <% }) %>
+                </ul>
+                <p class="py-2"><strong>Caracteristicas</strong></p>
+                <ul class="contact-list">
+                <% wine.caracteristicas.split(",").forEach(item => {  %>
+                    <% if (item != "") { %>
+                        <li class="contact-item py-2"><span class="px-2">&#127863;</span><%= item %></li>
+                    <% } else {%>
+                        <li class="contact-item"><span class="px-2">&#10006;</span>No fueron especificadas</li>
+                    <% } %>
+                <% }) %>
+                </ul>
+            </div>
+        </div>
+        
+        <%- include('../partials/shop_info') %>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>

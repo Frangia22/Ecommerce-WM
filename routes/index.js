@@ -37,6 +37,7 @@ router.get('/product', async (req, res) => {
   console.log(filterUno[1]);*/
   res.render('pages/products', { filterVariety, wines });
 });
+/* ------------------------Filtro con checkbox ------------------------- */
 router.get('/filtrar', async (req, res) => {
   const wines = await api.getWines();
   const filterVariety = await api.getWineVariety();  
@@ -56,6 +57,11 @@ router.get('/buscar', async (req, res) => {
     wines
   });
   // res.send(book);
+});
+/* ------------------------Ver producto ------------------------- */
+router.get('/product/:id', async (req, res) => {
+  const wine = await api.getWineById(req.params.id);
+  res.render('pages/product', { wine });
 });
 
 /* ------------------------ Panel de administracion ------------------------- */

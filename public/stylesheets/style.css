@@ -263,8 +263,19 @@ body{
     margin: 0 10px;
 }
 /* Product*/
-
-
+/* ------------------------------------ Product ------------------------------------*/
+.card-product{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+    padding: 10px;
+}
+.card-img-product, .card-body{
+    margin: auto;
+}
+.img-product{
+    width: 30em;
+}
 /* ----------------------------------------- Fin de Productos --------------------------------------------*/
 .card-about{
     display: flex;
@@ -449,10 +460,18 @@ th, td{
     margin-bottom: var(--margin-bottom);  
     width: 100%;  
 }
+/* ------------------------------ Margenes y padding ----------------*/
 .mt-1{
     margin: 10px auto;
     width: 50%;
 }
+.py-2{
+    padding: 10px 0;
+}
+.px-2{
+    padding: 0 10px;
+}
+/* ------------------------------ Fin Margenes y padding ----------------*/
 .btn-inicio{
     background-color: var(--blue);
     border-radius: 20px;

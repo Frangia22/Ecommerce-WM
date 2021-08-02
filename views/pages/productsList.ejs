@@ -21,6 +21,12 @@
                 </ul>
             </div>
         </div><!-- Cierra el subtitle -->
+        <% if(message) { %>
+            <div class="form-group-6 m-auto alert alert-success" role="alert" id="messageAlert">
+                <strong><%= message %></strong>
+                <button aria-hidden="true" data-dismiss="alert" id="btnClose" class="close" type="button">&#10006;</button>
+            </div>
+        <% } %>
         <div class="container">
             <table>
                 <thead>
@@ -56,5 +62,11 @@
     </main>
     <%- include('../partials/footer') %>
     <script src="/javascripts/effects.js"></script>
+    <script>
+        const btn = document.querySelector('#btnClose');
+        btn.addEventListener('click', () => {
+            messageAlert.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

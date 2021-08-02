@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="principal" id="content">
+        <form class="form-group" action="/loginPost" method="post">
+            <div class="container m-auto">
+                <div class="header-subtitle">
+                    <ul class="subtitle-list">
+                        <li class="subtitle-item subtitle-item-admin"><h1 class="subtitle-item-link">Iniciar sesión</h1></li>
+                    </ul>
+                </div>
+            </div><!-- Cierra el subtitle -->
+            <% if(message) { %>
+                <div class="form-group-12 alert alert-error" role="alert" id="messageAlert">
+                    <strong><%= message %></strong>
+                    <button aria-hidden="true" data-dismiss="alert" id="btnClose" class="close" type="button">&#10006;</button>
+                </div>
+            <% } %>
+            <div class="form-group-12">
+                <label for="username" class="form-label">Usuario</label>
+                <input class="form-control" type="text" name="username" id="username" required>
+            </div>
+                <div class="form-group-12">    
+                <label for="password" class="form-label">Contraseña</label>
+                <input class="form-control" type="password" name="password" id="password" required>
+                <span><i id="showHide" class="bi bi-eye icon-pass" type="button"></i></span>                                          
+            </div>
+            <button type="submit" class="mt-1 btn btn-add">Iniciar</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>
+    <script>
+        const buttonPass = document.querySelector('#showHide');
+        buttonPass.addEventListener('click', () => {
+            if (password.type === 'password') {
+                password.type = 'text';    
+                showHide.classList.remove('bi', 'bi-eye');      
+                showHide.classList.add('bi', 'bi-eye-slash');    
+            }else{
+                password.type = 'password';
+                showHide.classList.remove('bi', 'bi-eye-slash'); 
+                showHide.classList.add('bi', 'bi-eye');   
+            }
+        });
+        const btn = document.querySelector('#btnClose');
+        btn.addEventListener('click', () => {
+            messageAlert.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

@@ -110,7 +110,19 @@ const findLastWine = async () => {
         ]
     });
     return wines;
-
+}
+//Traer usuario y pass
+const getUser = async(username, password) => {
+    const usuario = await db.users.findAll({
+        where: {
+                user: username,
+                password: password          
+        }
+    })
+    .then(result => {
+        return result;
+    })
+    return usuario;
 }
 
 module.exports = {
@@ -123,5 +135,6 @@ module.exports = {
     filterDos,
     getWineVariety,
     findWineByTitle,
-    findLastWine
+    findLastWine,
+    getUser
 }

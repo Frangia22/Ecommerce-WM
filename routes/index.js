@@ -53,8 +53,16 @@ router.get('/filtrar', async (req, res) => {
   let logueado = req.session.loggedin;
   const wines = await api.getWines();
   const filterVariety = await api.getWineVariety();  
-  console.log('Resultado', req.query.variedad);
-  const wineFilters = req.query.variedad;
+  //console.log('Resultado', req.query.variedad);
+  let wineFilters = [];
+  if (typeof req.query.variedad === 'string') {
+    // Si es un string... creo un array para que pueda ser iterable
+    wineFilters.push(req.query.variedad);
+  } else {
+    wineFilters = req.query.variedad;
+  }
+
+  console.log(wineFilters);
   res.render('pages/products', { 
     filterVariety, 
     wines, 

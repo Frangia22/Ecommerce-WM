@@ -71,47 +71,31 @@
                         <p class="card-text">Filtrando por: <strong><%= wineFilters %></strong><a class="delete-filter" href="/product">&#10060;</a></p>  
                     </div>
                       <% wines.forEach(wine => { %>
-                        <!-- Agrego el if para solucionar el error del forEach -->
-                        <% if (wineFilters != 1 ) { %>
-                          <% if (wineFilters == wine.variedad ) { %>
+                        <% wineFilters.forEach(filter => { %>
+                          <% if (filter == wine.variedad) { %>
                             <div class="card">
                                 <img src="<%= wine.url %>" alt="" class="img-card">
                                 <div class="card-body">
                                     <h2 class="card-title">$ <%= wine.precio %></h2>
                                     <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
-                                    <p class="card-text"><%= wine.tipo %></p>
-                                    <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>                                    
+                                    <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                                 </div>
                             </div>
-                            <% } %>
-                        <% } %>
-                        <% if (wineFilters == []) { %>
-                          <% wineFilters.forEach(filter => { %>
-                            <% if (filter == wine.variedad) { %>
-                                <div class="card">
-                                    <img src="<%= wine.url %>" alt="" class="img-card">
-                                    <div class="card-body">
-                                        <h2 class="card-title">$ <%= wine.precio %></h2>
-                                        <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
-                                        <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
-                                    </div>
-                                </div>
-                            <% } %>
-                          <% }) %>
-                        <% } %>
+                          <% } %>
+                        <% }) %>
                       <% }) %>
-                  <% } else { %>            
+                  <% } else { %>
                       <% wines.forEach(wine => { %>
                         <div class="card">
                             <img src="<%= wine.url %>" alt="" class="img-card">
                             <div class="card-body">
                                 <h2 class="card-title">$ <%= wine.precio %></h2>
-                                <p class="card-text-product" title="<%= wine.nombre %>" ><%= wine.nombre %></p>
+                                <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
                                 <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                             </div>
                         </div>
-                      <% }) %>                    
-                  <% } %>            
+                      <% }) %>
+                  <% } %> 
             </div>
         </div> <!-- Cierra principal-productos -->
         <%- include('../partials/shop_info') %>

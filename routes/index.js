@@ -1,9 +1,13 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const { response } = require('express');
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
+// eslint-disable-next-line no-undef
 var express = require('express');
 var router = express.Router();
 
 //Llamar a las queries
+// eslint-disable-next-line no-undef
 const api = require('../api');
 
 /* GET home page. */
@@ -80,7 +84,7 @@ router.get('/product/:id', async (req, res) => {
 router.get('/products/list', async (req, res) => {
   let logueado = req.session.loggedin;
   const wines = await api.getWines();
-  if (logueado) {
+  if (logueado == true) {
     res.render('pages/productsList', { wines, message:'', logueado });
   } else {
     res.render('pages/login', { message: 'Por favor loguearse para ver esta pagina', logueado});
@@ -156,9 +160,12 @@ router.post('/loginPost', async (req, res) => {
 router.get('/logout', async (req, res) => {
   const lastWines = await api.findLastWine();
   let logueado = false;
-  req.session.destroy((err) => {});
+  req.session.destroy((err) => {
+    console.log(err);
+  });
   res.render('index', { lastWines ,logueado });  
 });
 
 
+// eslint-disable-next-line no-undef
 module.exports = router;

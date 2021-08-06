@@ -11,20 +11,25 @@ const getWines = async () => {
         });
     return wines;
 };
-/* Le pido que me traiga todos los Productos
+//Le pido que me traiga todos los Productos, los cuente y me devuelva 5 por fila 
+//Pagination
 const getWinesCount = async (page) => {
+    console.log(page);
     const limit = 5;
     let offset = 0;
+    offset = limit * (page - 1);
     const { count, rows } = await db.products.findAndCountAll({
         offset: offset,
         limit: limit
       });
-      let pages = Math.ceil(count / limit);
-      offset = limit * (page - 1);
-      console.log('Cantidad de ',count);
-      console.log('Cantidad de ',pages);
-      console.log('Cantidad de filas',rows);
-};*/
+      let pages = Math.ceil(count / limit);  
+      let currentPage = page ? +page : 0;
+      console.log('Pagina actual',currentPage);
+      //console.log('Cantidad de productos ',count);
+      console.log('Cantidad de paginas ',pages);
+      //console.log('Cantidad de filas',rows);
+    return count, rows;
+};
 //Agregar un producto
 const addWines = async (nombre, tipo, precio, url, variedad, descripcion, caracteristicas) => {
     const wine = await db.products.create({
@@ -141,7 +146,7 @@ const getUser = async(username, password) => {
 
 module.exports = {
     getWines,
-    //getWinesCount,
+    getWinesCount,
     addWines,
     updateWine, 
     getWineById, 

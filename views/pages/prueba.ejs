@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="shortcut icon" href="/images/wine-icon.png">
+    <title>The wines club</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main class="principal" id="content">
+        <div class="breadcrumbs">
+            <ul class="list-bread">
+                <li class="bread-item"><a href="../" class="bread-item-link space">Inicio</a></li>
+                <li class="bread-item"><span class="bread-item-span">></span></li>
+                <li class="bread-item"><a href="/products" class="bread-item-link active">Productos</a></li>
+            </ul>
+            <div class="search">
+                <form class="" action="/buscar" method="GET">
+                    <input class="form-news-input" type="search" name="q">
+                    <input class="btn btn-products" type="submit" value="Buscar">
+                </form>
+            </div>
+            <div class="order-by">
+                <label for="order-by" class="by">Ordenar por: </label>
+                <select class="select-order" id="order-by">
+                    <option value="price-ascending">Precio: Menor a Mayor</option>
+                    <option value="price-descending">Precio: Mayor a Menor</option>
+                    <option value="created-ascending">Mas viejo a mas nuevo</option>
+                    <option value="created-descending">Mas nuevo a mas viejo</option>
+                    <option value="best-selling">Mas vendidos</option>
+                </select>
+            </div>
+            <div class="filter-btn">
+                <button class="btn-filter" type="submit" id="menuFilter">Filtrar</button>
+            </div>
+        </div>
+        <div class="principal-products">
+            <div class="category" id="filter">
+                <h1 class="title-category">Categorias</h1>
+                <ul class="list-category">
+                    <li class="item-category"><a href="/products/categoriaUno" class="item-category-link">Categoria 1</a></li>
+                    <li class="item-category"><a href="/products/categoriaDos" class="item-category-link">Categoria 2</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 3</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 4</a></li>
+                    <li class="item-category"><a href="#" class="item-category-link">Categoria 5</a></li>
+                </ul>
+                <h1 class="title-category">Filtros</h1> 
+                <% if (locals.filterVarietys) { %>
+                    <h2 class="subtitle-filter">Filtrar por variedad</h2>
+                    <form action="/filtrar" method="GET">
+                        <ul class="list-filter">
+                            <% filterVarietys.forEach(variety => { %>
+                            <li class="item-filter"><input class="item-filter-input" type="checkbox" value="<%= variety.DISTINCT %>" name="variedad"><label class="item-filter-label" for="filtro-1"><%= variety.DISTINCT %></label></li>
+                            <% }) %>
+                        </ul>
+                        <h2 class="subtitle-filter">Precios</h2>
+                        <input type="range" min="0" max="10000">                    
+                        <input class="btn btn-products" type="submit" value="Filtrar">
+                    </form>
+                    <% } %>              
+            </div>
+            <div class="product">  
+                <% winesCount.forEach(wine => { %>
+                    <div class="card">
+                        <img src="<%= wine.url %>" alt="" class="img-card">
+                        <div class="card-body">
+                            <h2 class="card-title">$ <%= wine.precio %></h2>
+                            <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
+                            <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
+                        </div>
+                    </div>
+                    <% }) %>
+                  <!-- 
+                                <% if (locals.wineFilters) { %>
+                    <p>Acá hay filtros <%= wineFilters %></p>
+                      <% wines.forEach(wine => { %>
+                        <% wineFilters.forEach(filter => { %>
+                          <% if (filter == wine.variedad) { %>
+                            <div class="card">
+                                <img src="<%= wine.url %>" alt="" class="img-card">
+                                <div class="card-body">
+                                    <h2 class="card-title">$ <%= wine.precio %></h2>
+                                    <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
+                                    <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
+                                </div>
+                            </div>
+                          <% } %>
+                        <% }) %>
+                      <% }) %>
+                  <% } else { %>
+                      <% wines.forEach(wine => { %>
+                        <div class="card">
+                            <img src="<%= wine.url %>" alt="" class="img-card">
+                            <div class="card-body">
+                                <h2 class="card-title">$ <%= wine.precio %></h2>
+                                <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
+                                <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
+                            </div>
+                        </div>
+                      <% }) %>
+                  <% } %>      
+                             -->          
+            </div>
+            
+            <div class="product">
+                <ul class="pagination">
+                    <% if (prevPage <= 0) { %>
+                        <li class="page-item"><a class="page-link" href="/prueba/<%= nextPage%>">Next</a></li>  
+                    <% }else if (winesCount <= 0) { %>
+                    <div class="container-filter">
+                        <p class="card-text">Lo siento!! No hay mas productos para mostrar<a class="delete-filter" href="/products">&#10060;</a></p>  
+                    </div>
+                    <li class="page-item"><a class="page-link" href="/prueba/<%= prevPage%>">Previous</a></li>                    
+                    <% }else { %>
+                        <li class="page-item"><a class="page-link" href="/prueba/<%= prevPage%>">Previous</a></li>                    
+                        <li class="page-item"><a class="page-link" href="/prueba/<%= nextPage%>">Next</a></li>
+                    <% } %>
+                  </ul>
+            </div>
+        </div> <!-- Cierra principal-productos -->
+        <%- include('../partials/shop_info') %>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/effects.js"></script>
+</body>
+</html>

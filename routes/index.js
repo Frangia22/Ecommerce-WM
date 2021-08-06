@@ -21,12 +21,6 @@ router.get('/about_me', (req, res) => {
   let logueado = req.session.loggedin;
   res.render('pages/about_me',{ logueado });
 });
-/* ------------------------productos ------------------------- */
-router.get('/products', async (req, res) => {
-  let logueado = req.session.loggedin;
-  const wines = await api.getWines();
-  res.render('pages/products', { wines, logueado });
-});
 /* ------------------------productos filtro por categoria ------------------------- */
 router.get('/products/categoriaUno', async (req, res) => {
   let logueado = req.session.loggedin;
@@ -39,7 +33,7 @@ router.get('/products/categoriaDos', async (req, res) => {
   res.render('pages/products', { wines, logueado });
 });
 /* ------------------------productos ------------------------- */
-router.get('/product', async (req, res) => {
+router.get('/products', async (req, res) => {
   let logueado = req.session.loggedin;
   const wines = await api.getWines();
   const filterVariety = await api.getWineVariety();  
@@ -47,6 +41,20 @@ router.get('/product', async (req, res) => {
   console.log(filterUno[0].DISTINCT);
   console.log(filterUno[1]);*/
   res.render('pages/products', { filterVariety, wines, logueado });
+});
+/* ------------------------ prueba ------------------------- */
+router.get('/prueba/:page', async (req, res) => {
+  let logueado = req.session.loggedin;
+  const wines = await api.getWines();
+  let page = req.params.page;
+  //console.log('El resultado de page es: ',page);
+  const winesCount = await api.getWinesCount(page);  
+  let nextPage = (parseFloat(page) + parseFloat(1));
+  const prevPage = (parseFloat(page) - parseFloat(1));
+  //console.log('Pagina siguiente: ',nextPage); 
+  //console.log('Pagina anterior: ',prevPage); 
+  //console.log(winesCount);
+  res.render('pages/prueba', { winesCount, wines, logueado, nextPage, prevPage });
 });
 /* ------------------------Filtro con checkbox ------------------------- */
 router.get('/filtrar', async (req, res) => {
@@ -75,9 +83,13 @@ router.get('/buscar', async (req, res) => {
   let logueado = req.session.loggedin;
   // Los datos de la URL vienen en req.query
   const wines = await api.findWineByTitle(req.query.q);
+  const searchWine = req.query.q;
+  const filterVariety = await api.getWineVariety();  
   res.render('pages/products', {
     wines, 
-    logueado
+    searchWine,
+    logueado,
+    filterVariety
   });
   // res.send(book);
 });

@@ -5,7 +5,8 @@ const { response } = require('express');
 // eslint-disable-next-line no-undef
 var express = require('express');
 var router = express.Router();
-
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey('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');
 //Llamar a las queries
 // eslint-disable-next-line no-undef
 const api = require('../api');
@@ -185,7 +186,25 @@ router.get('/logout', async (req, res) => {
   });
   res.render('index', { lastWines ,logueado });  
 });
-
+/* ----------------------- Newlestter ------------------------- */
+router.post('/suscribirse', (req, res) => {
+  const email = req.body.email;
+  const msg = {
+    to: email, // Change to your recipient
+    from: 'thewinesclublbye@gmail.com', // Change to your verified sender
+    subject: 'Suscripto a Newsletter',
+    text: 'Probando send grid',
+  };  
+  sgMail.send(msg)
+  .then(() => {
+    console.log('Email sent')
+    console.log('Enviando mensaje a ',email);
+  })
+  .catch((error) => {
+    console.error(error)
+  });
+  res.redirect('/');
+});
 
 // eslint-disable-next-line no-undef
 module.exports = router;

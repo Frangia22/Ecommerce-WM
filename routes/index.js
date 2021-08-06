@@ -6,7 +6,7 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey('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');
+sgMail.setApiKey('');
 //Llamar a las queries
 // eslint-disable-next-line no-undef
 const api = require('../api');

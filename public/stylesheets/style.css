@@ -1,3 +1,31 @@
+/*--------------------------------------- Indice ------------------------------------------*/
+/*
+    -- Fuente
+    -- Variables
+    -- Generales
+    -- Header / Skip navigation
+    -- Nav / Menu
+    -- Slider img
+    -- Container
+    -- Info
+    -- Subtitle
+    -- Card products
+    -- Products
+    -- Breadcrums
+    -- Principal products
+    -- Categorias
+    -- Product
+    -- Card about
+    -- Panel de administracion
+    -- Botones
+    -- Footer
+    -- Formularios
+    -- Login
+    -- Width and Height
+    -- Margin and padding
+    -- Pagination
+    -- Media queries
+/*
 /*--------------------------------------- Fuente ---------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Mate+SC&family=Shadows+Into+Light&display=swap');
 /*--------------------------------------- Variables ---------------------------------------------*/
@@ -61,12 +89,12 @@ body{
 }
 /*--------------- Clima actual ------------------*/
 .weather-link{
-    margin: auto 10px;
-    text-decoration: none;
+    align-items: center;
     color: var(--blue);
     display: flex;
-    align-items: center;
     gap: 10px;
+    text-decoration: none;
+    margin: auto 10px;
 }
 /* ------------------------------------- Menu and button --------------------- */
 /* -------------------------------- Boton ----------------------------------*/
@@ -79,46 +107,46 @@ body{
     margin-bottom: var(--bottom);
 }
 .list{
-    list-style: none;
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
 }
 .list-item{
     flex-grow: 1;
     text-align: center;
 }
 .list-item-link{
-    text-decoration: none;
-    display: block;
-    padding: 10px 0;
     color: var(--blue);
+    display: block;
     font-weight: bold;
     font-size: 18px;
+    text-decoration: none;
+    padding: 10px 0;
 }
 .list-item-link:hover{
-    color: var(--white);
     background-color: var(--blue);
-}
-.logo{
-    background-image: url('/images/theWine.png');
+    color: var(--white);
 }
 .title-logo {
-    color: var(--pinkwine);
     animation: logoIn 2.5s ;  
+    color: var(--pinkwine);
     font-size: 1.4em;
   }
 /* ------------------------------------------ Slider img ----------------- */
 .swiper-container {
-    width: 100%;
     height: 300px;
     margin-bottom: var(--bottom);
+    width: 100%;
   }
   .swiper-pagination{
     margin: auto;
   }
   .swiper-slide{
       text-align: center;
+  }
+  .img-slider{
+      border-radius: 10px;
   }
 /* -------------------------------------- Contenedor ------------------ */
 .container{
@@ -135,12 +163,12 @@ body{
     margin-bottom: 5px;
 }
 .shipping, .shop, .buysafe{
+    align-items: center;
     background-color: transparent;
     display: flex;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-    gap: 20px;
     padding: 10px;
 }
 .text-info{
@@ -153,18 +181,18 @@ body{
     padding: 10px 0;
 }
 .subtitle-list{
-    list-style: none;
-    display: flex;
-    text-align: end;
     align-items: center;
+    display: flex;
+    list-style: none;
+    text-align: end;
 }
 .subtitle-item{
     flex-grow: 1;
 }
 .subtitle-item-link{
+    color: var(--blue);
     text-decoration: none;
     margin-right: 20px;
-    color: var(--blue);
 }
 .link-v-m:hover{
     color: var(--black);
@@ -173,27 +201,29 @@ body{
 /*-------------------------------------------Card products -----------------------------------------------*/
 .product{
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .container-filter {
     display: block;
-    width: 100%;
     margin: auto;
+    width: 100%;
 }
 .card{
-    margin: 20px auto;
-    padding: 5px;
     border: 1px solid var(--lightblue);
     border-radius: 10px;
+    padding: 5px;
+    margin: 20px auto;
 }
 .card-body{
     margin: 10px auto;
 }
 .img-card{
-    width: 15em;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
     height: 12.5em;
+    width: 15em;
 }
 .card-title{
     padding: 10px 0;
@@ -202,13 +232,13 @@ body{
     text-align: center;
 }
 .card-text-product {
-    text-align: center;
+    cursor: pointer;
     font-size: 1.5em;
     overflow: hidden;
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 200px;
-    cursor: pointer;
 }
 .img-fluid{
     display: flex;
@@ -227,41 +257,41 @@ body{
     display: none;
 }
 .list-bread, .order-by{
-    list-style: none;
     display: flex;
+    list-style: none;
     margin: auto 20px;
     padding: 10px 0;
 }
 .bread-item ,.by{
     background-color: var(--lightblue);
+    box-shadow: -2px 10px 20px -6px rgb(0,25,14);
     margin: 0 5px;
     padding: 5px;
     transform: skewX(-20deg);
-    box-shadow: -2px 10px 20px -6px rgb(0,25,14);
 }
 .bread-item-link{
-    text-decoration: none;
     color: var(--lightblack);
+    text-decoration: none;
 }
 .delete-filter{
     text-decoration: none;
     margin: auto 20px;
 }
 .active{
-    font-weight: bold;
     color: var(--black);
+    font-weight: bold;
 }
 .select-order{
-    transform: skewX(-20deg);
     box-shadow: -2px 10px 20px -6px rgb(0,25,14);
+    transform: skewX(-20deg);
 }
-/* principal-product */
+/* ---------------------------------------- Principal-product------------- */
 .principal-products{
     display: grid;
     grid-template-columns: 200px 1fr;
     margin-bottom: var(--bottom);
 }
-/* Categorias*/
+/* ---------------------- Categorias ----------------------------*/
 .category{
     grid-column: 1;
     grid-row: 1 / 3;
@@ -294,15 +324,16 @@ body{
 }
 .img-product{
     width: 30em;
+    border-radius: 10px;
 }
-/* ----------------------------------------- Fin de Productos --------------------------------------------*/
+/* ----------------------------------------- Card About --------------------------------------------*/
 .card-about{
-    display: flex;
-    justify-content: space-around;    
     align-items: center;
-    margin: 0 20px;
+    display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: space-around;    
+    margin: 0 20px;
     margin-bottom: var(--bottom);
 }
 .card-about-body{
@@ -333,7 +364,7 @@ th, td{
     border-right: 1px solid black;
     padding: 5px;
 }
-/*-------- Botones ------*/
+/*-------- Botones --------------------------------------------------*/
 .add-product{
     text-align: center;    
 }
@@ -372,6 +403,20 @@ th, td{
     margin: 5px auto;
     width: 7em;
 }
+.btn-inicio{
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: none;
+    color: var(--white);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 10px 5px;
+    text-transform: uppercase;
+}
+.btn-inicio:hover{
+    background-color: var(--gray);
+    color: var(--black);
+}
 /*----------- Fin del panel ----------*/
 /*------------------------------------------------------------------------------------*/
 /* ---------------------------------------- Footer --------------------- */
@@ -396,8 +441,8 @@ th, td{
 }
 .payment-list{
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .payment-item{
     margin: 5px 20px;
@@ -407,8 +452,8 @@ th, td{
 }
 /* ----------- Contacto ---------*/
 .contact-item{
-    display: flex;
     align-items: center;
+    display: flex;
 }
 .contact-item-link, .social-item-link{
     text-decoration: none;
@@ -429,8 +474,8 @@ th, td{
     transition: all .6s cubic-bezier(.19,1,.22,1);
 }
 .img-social:hover{
-    transform: translate(10px, -10px);
     filter: none;
+    transform: translate(10px, -10px);
 }
 /* ------------ Newsletter ----------------*/
 .form-news{
@@ -438,18 +483,18 @@ th, td{
     font-size: 0;
 }
 .form-news-input, .form-news-btn{
-    min-height: 32px;
     border-radius: 5px;
+    min-height: 32px;
 }
 .form-news-btn{
-    padding: 0 10px;
     background-color: var(--whitewine);
+    border: 1px solid var(--whitewine);
     color: var(--black);
     font-weight: bold;
-    border: 1px solid var(--whitewine);
+    padding: 0 10px;
 }
 /* ----------------------------------------- Fin de sobre nosotros --------------------------------------------*/
-/* ------------------------------ Formularios */
+/* ------------------------------ Formularios ---------------------------------*/
 .form-group {
     background-color: beige;
     display: flex;
@@ -479,7 +524,7 @@ th, td{
     margin-bottom: var(--margin-bottom);  
     width: 100%;  
 }
-/* ------------------------------ Login ----------------*/
+/* ------------------------------ Login ---------------------------------*/
 .hide{
     display: none;
 }
@@ -487,17 +532,17 @@ th, td{
     display: block;
 }
 .icon-pass{
-    position: relative;
-    left: 95%;
-    top: -30%;
     cursor: pointer;
+    left: 95%;
+    position: relative;
+    top: -30%;
 }
 .alert {
+    border-radius: 4px;
+    font-size: 12px;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 4px;
     text-transform: uppercase;
-    font-size: 12px;
     opacity: 0.7;
 }
 
@@ -510,22 +555,22 @@ th, td{
     border: 2px solid var(--warning);
 }
 button.close {
-    cursor: pointer;
     background: 0 0;
     border: 0;
+    cursor: pointer;
     position: relative;
     left: 50%;
 }
 .close {
-    font-size: 20px;
     color: var(--black);
+    font-size: 20px;
+    font-weight: normal;
     opacity: 0.9;
-    font-weight: normal
 }
 /* ------------------------------ Width y Height ----------------*/
 .w-75{
-    width: 75%;
     margin: auto;
+    width: 75%;
 }
 /* ------------------------------ Margenes y padding ----------------*/
 .mt-1{
@@ -542,21 +587,23 @@ button.close {
     margin: auto;
 }
 /* ------------------------------ Fin Margenes y padding ----------------*/
-.btn-inicio{
-    background-color: var(--blue);
-    border-radius: 20px;
-    border: none;
-    color: var(--white);
-    font-size: 0.9em;
-    font-weight: bold;
-    padding: 10px 5px;
-    text-transform: uppercase;
+/*------------------------------------ Pagination ------------------------*/
+.pagination {
+    display: flex;
+    list-style: none;
 }
-.btn-inicio:hover{
-    background-color: var(--gray);
-    color: var(--black);
+.page-link {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #007bff;
+    display: block;
+    line-height: 1.25;
+    padding: .5rem .75rem;
+    position: relative;
+    margin-left: -1px;
+    text-decoration: none;
 }
-/* ----------------------------------------- Fin de sobre nosotros --------------------------------------------*/
+/* ----------------------------------------- Fin de pagination --------------------------------------------*/
 /* ---------------------------------------- Media queries --------------------- */
 @media (max-width: 1023px){
     /* Skip navigation */
@@ -577,20 +624,20 @@ button.close {
     }
     /*------------------------------------- Nav ----------------------------------------------*/
     .btn-menu{
-        display: block;
         background-color: transparent;
         border: 2px solid var(--black);
         border-radius: 6px;
+        display: block;
     }
     .burger-menu{
-        background-image: url(/static/img/menu-bg-light.png);
+        background-image: url(/images/menu-bg-light.png);
+        background-repeat: no-repeat;
+        background-position: center;
         display: inline-block;
-        width: 2.5em;
         height: 2.5em;
         margin: 5px;
         vertical-align: middle;
-        background-repeat: no-repeat;
-        background-position: center;
+        width: 2.5em;
     }
     .navbar{
         display: none;
@@ -603,14 +650,14 @@ button.close {
     }
     /* Slider img */
     .swiper-container {
-        width: 100%;
         height: auto;
         margin-bottom: var(--bottom);
+        width: 100%;
     }
     .swiper-button-next,
     .swiper-button-prev {
-        opacity: 0.3;
         font-size: 10px !important;       
+        opacity: 0.3;
     }
     
     /* Principal productos */
@@ -624,26 +671,30 @@ button.close {
         display: block;
     }
     .mostrarFiltro{
-        display: block;
-        position: absolute;
         background-color: var(--lightblue);
+        display: block;
         margin: -25px 20px;
         padding: 5px;
+        position: absolute;
     }
     .filter-btn{
         margin: auto 20px;
         padding: 10px 0;
     }
     .btn-filter{
-        padding: 0 10px;
         background-color: var(--lightblue);
+        border: 1px solid var(--lightblue);
+        box-shadow: -2px 10px 20px -6px rgb(0,25,14);
         color: var(--black);
         font-size: 16px;
         font-weight: bold;
-        border: 1px solid var(--lightblue);
-        transform: skewX(-20deg);
-        box-shadow: -2px 10px 20px -6px rgb(0,25,14);
         font-family: 'Shadows Into Light', Impact, sans-serif, cursive;
+        padding: 0 10px;
+        transform: skewX(-20deg);
+    }
+    /* ------------------------------ Formularios --------------------------*/
+    .form-group{
+        width: 100%;
     }
     /*About*/
     .card-about-text{
@@ -659,8 +710,12 @@ button.close {
     /* ------------------------------ Subtitle Nuestros productos----------------*/
     .subtitle-list{
         display: flex;
-        text-align: center;
         flex-wrap: wrap;
+        text-align: center;
+    }
+    /* ------------------------------ ----*/
+    .icon-pass{
+        left: 90%;
     }
     /*------------------------------------- Footer ----------------------------------------------*/
     .list-item{

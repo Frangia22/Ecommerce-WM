@@ -66,9 +66,14 @@
                 <% } %>                
             </div>
             <div class="product">
+                <% if (locals.searchWine) { %>
+                    <div class="container-filter">
+                        <p class="card-text">Buscando por: <strong><%= searchWine %></strong><a class="delete-filter" href="/products">&#10060;</a></p>  
+                    </div>
+                <% } %>
                 <% if (locals.wineFilters) { %>
                     <div class="container-filter">
-                        <p class="card-text">Filtrando por: <strong><%= wineFilters %></strong><a class="delete-filter" href="/product">&#10060;</a></p>  
+                        <p class="card-text">Filtrando por: <strong><%= wineFilters %></strong><a class="delete-filter" href="/products">&#10060;</a></p>  
                     </div>
                       <% wines.forEach(wine => { %>
                         <% wineFilters.forEach(filter => { %>

@@ -44,11 +44,9 @@
             <div class="category" id="filter">
                 <h1 class="title-category">Categorias</h1>
                 <ul class="list-category">
-                    <li class="item-category"><a href="/products/categoriaUno" class="item-category-link">Categoria 1</a></li>
-                    <li class="item-category"><a href="/products/categoriaDos" class="item-category-link">Categoria 2</a></li>
-                    <li class="item-category"><a href="#" class="item-category-link">Categoria 3</a></li>
-                    <li class="item-category"><a href="#" class="item-category-link">Categoria 4</a></li>
-                    <li class="item-category"><a href="#" class="item-category-link">Categoria 5</a></li>
+                    <li class="item-category"><a href="/products/categoriaUno" class="item-category-link">Tintos</a></li>
+                    <li class="item-category"><a href="/products/categoriaDos" class="item-category-link">Blancos</a></li>
+                    <li class="item-category"><a href="/products/categoriaTres" class="item-category-link">Espumantes</a></li>
                 </ul>
                 <h1 class="title-category">Filtros</h1>
                 <% if (locals.filterVariety) { %>
@@ -58,10 +56,8 @@
                         <% filterVariety.forEach(variety => { %>
                         <li class="item-filter"><input class="item-filter-input" type="checkbox" value="<%= variety.DISTINCT %>" name="variedad"><label class="item-filter-label" for="filtro-1"><%= variety.DISTINCT %></label></li>
                         <% }) %>
-                    </ul>
-                    <h2 class="subtitle-filter">Precios</h2>
-                    <input type="range" min="0" max="10000">                    
-                    <input class="btn btn-products" type="submit" value="Filtrar">
+                    </ul>                  
+                    <input class="btn btn-products bg-white" type="submit" value="Filtrar">
                 </form>
                 <% } %>                
             </div>

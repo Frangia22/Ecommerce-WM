@@ -29,12 +29,22 @@
         <div class="news">
             <h3 class="footer-title">Suscribirse</h3>
             <form action="/suscribirse" class="form-news" method="post">
-                <input type="email" class="form-news-input" placeholder="Correo Electronico" name="email">
-                <button class="form-news-btn" type="submit">Suscribe</button>
+                <input id="emailNews" type="email" class="form-news-input" placeholder="Correo Electronico" name="email" required>
+                <button class="form-news-btn" type="submit" id="btnNews">Suscribe</button>
             </form>
         </div>
     </div>
         <!--         
         
     --> 
-</footer>   <!-- Cierra el footer -->
+</footer> 
+<script>
+    var button = document.getElementById("btnNews");
+    button.addEventListener("click", (event) => {
+        if (emailNews.value == ''){
+            alert('Complete el campo email');
+        }else{
+            alert('Gracias por suscribirte!!');
+        }
+    });
+</script>  <!-- Cierra el footer -->

@@ -528,6 +528,9 @@ th, td{
 .hide{
     display: none;
 }
+.show-news{
+    display: block;
+}
 .icon-pass{
     cursor: pointer;
     left: 95%;

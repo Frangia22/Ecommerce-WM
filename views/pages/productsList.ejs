@@ -31,28 +31,68 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th class="hide-field">ID</th>
                         <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Variedad</th>
-                        <th>Precio</th>
+                        <th class="hide-field">Tipo</th>
+                        <th class="hide-field">Variedad</th>
+                        <th class="hide-field">Precio</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <% wines.forEach(wine => { %>
                 <tbody>
                     <tr>
-                        <td><%= wine.id %></td>
+                        <td class="hide-field"><%= wine.id %></td>
                         <td><%= wine.nombre %></td>
-                        <td><%= wine.tipo %></td>
-                        <td><%= wine.variedad %></td>
-                        <td><%= wine.precio %></td>
+                        <td class="hide-field"><%= wine.tipo %></td>
+                        <td class="hide-field"><%= wine.variedad %></td>
+                        <td class="hide-field"><%= wine.precio %></td>
                         <td>
-                            <a class="btn btn-edit" href="/editar/<%= wine.id %>">Editar</a>
-                            <a class="btn btn-delete" href="/eliminar/<%= wine.id %>">Eliminar</a>
+                            <a class="hide-field btn btn-edit" href="/editar/<%= wine.id %>">Editar</a>
+                            <a class="hide-field btn btn-delete" href="/eliminar/<%= wine.id %>">Eliminar</a>
+                            <a href="" class="btn btn-edit hide show-btn" data-bs-toggle="modal" data-bs-target="#verProducto-<%= wine.id %>">Ver detalles</a>
                         </td>
                     </tr>
                 </tbody>
+                <div class="modal fade hide-field hide" id="verProducto-<%= wine.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><%= wine.nombre %></h5>
+                                <button aria-hidden="true" data-dismiss="alert" data-bs-dismiss="modal" id="btnClose" class="close close-modal" type="button">&#10006;</button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="list">
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Tipo de vino</strong></p>
+                                        <p class="card-text"><%= wine.tipo %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Variedad</strong></p>
+                                        <p class="card-text"><%= wine.variedad %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Precio</strong></p>
+                                        <p class="card-text">$ <%= wine.precio %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Descripcion</strong></p>
+                                        <p class="card-text"><%= wine.descripcion %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Caracteristicas</strong></p>
+                                        <p class="card-text"><%= wine.caracteristicas %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Acciones</strong></p>
+                                        <a class="btn btn-edit" href="/editar/<%= wine.id %>">Editar</a>
+                                        <a class="btn btn-delete" href="/eliminar/<%= wine.id %>">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <% }) %>
             </table>
             <div class="add-product">
@@ -62,6 +102,7 @@
     </main>
     <%- include('../partials/footer') %>
     <script src="/javascripts/effects.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
         const btn = document.querySelector('#btnClose');
         btn.addEventListener('click', () => {

@@ -315,6 +315,7 @@ body{
 /* ------------------------------------ Product ------------------------------------*/
 .card-product{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 20px;
     padding: 10px;
@@ -330,14 +331,13 @@ body{
 .card-about{
     align-items: center;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
     justify-content: space-around;    
     margin: 0 20px;
     margin-bottom: var(--bottom);
 }
 .card-about-body{
-    max-width: 65%;
+    width: 50%;
 }
 .card-about-text{
     text-align: justify;
@@ -351,7 +351,7 @@ body{
 table{
     margin: 10px auto;
     text-align: center;
-    width: 75em;
+    width: 64em;
 }
 thead {
     background-color: var(--light-700-green);
@@ -528,9 +528,6 @@ th, td{
 .hide{
     display: none;
 }
-.show{
-    display: block;
-}
 .icon-pass{
     cursor: pointer;
     left: 95%;
@@ -575,7 +572,6 @@ button.close {
 /* ------------------------------ Margenes y padding ----------------*/
 .mt-1{
     margin: 10px auto;
-    width: 50%;
 }
 .py-2{
     padding: 10px 0;
@@ -616,7 +612,11 @@ button.close {
     }
     .form-news-btn{
         margin: 5px auto;
-    }    
+    }  
+    /* --------- Panel de administracion ---------------------*/  
+    table {
+        width: 100%;
+    }
 }
 @media (max-width: 767px){
     body{
@@ -692,6 +692,22 @@ button.close {
         padding: 0 10px;
         transform: skewX(-20deg);
     }
+    .search {
+        margin: auto 20px;
+    }
+    .text-overflow{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    /* ------------------------------ Sobre nosotros --------- */
+    .card-about{
+        flex-wrap: wrap;
+    }
+    .card-about-body {
+        width: 100%;
+        padding: 20px;
+    }
     /* ------------------------------ Formularios --------------------------*/
     .form-group{
         width: 100%;
@@ -705,6 +721,69 @@ button.close {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }       
+    /* ------------------------------ Panel de administracion ---------------*/
+    table {
+        width: 100%;
+    }
+    .hide-field {
+        display: none;
+    }
+    .show-btn {
+        display: block;
+    }
+    button.close {
+        left: 20%;
+    }
+    button.close-modal {
+        left: -1% !important;
+    }
+    .modal{
+        position: fixed;
+        z-index: 1060;
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: 0;
+        top: 0;
+    }
+    .fade {
+        transition: opacity .15s linear;
+    }
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: .5rem;
+        pointer-events: none;
+    }
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: .3rem;
+        outline: 0;
+    }
+    .modal-header {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        border-bottom: 1px solid #dee2e6;
+        border-top-left-radius: calc(.3rem - 1px);
+        border-top-right-radius: calc(.3rem - 1px);
+    }
+    .modal-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
 }
 @media (max-width: 400px) {
     /* ------------------------------ Subtitle Nuestros productos----------------*/
@@ -713,9 +792,21 @@ button.close {
         flex-wrap: wrap;
         text-align: center;
     }
-    /* ------------------------------ ----*/
+    /* ------------------------------ Login ----*/
     .icon-pass{
         left: 90%;
+    }
+    button.close {
+        left: 10%;
+    }
+     /* ------------------------------ About -------------------------*/
+    .card-about-body{
+        padding: 10px;
+        width: 100%;
+    }
+    /* ------------------------------ Products -------------------------*/
+    .bg-white {
+        background-color: var(--white);
     }
     /*------------------------------------- Footer ----------------------------------------------*/
     .list-item{

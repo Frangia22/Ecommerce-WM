@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const { response } = require('express');
-//const fetch = require('node-fetch');
+require('dotenv').config()
 // eslint-disable-next-line no-undef
 var express = require('express');
 var router = express.Router();
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey('');
+sgMail.setApiKey(process.env.API_KEY);
 //Llamar a las queries
 // eslint-disable-next-line no-undef
 const api = require('../api');
@@ -191,7 +191,7 @@ router.post('/suscribirse', (req, res) => {
   const email = req.body.email;
   const msg = {
     to: email, // Change to your recipient
-    from: 'thewinesclublbye@gmail.com', // Change to your verified sender
+    from: process.env.EMAIL_ADDRESS, // Change to your verified sender
     subject: 'Suscripto a Newsletter',
     text: 'Probando send grid',
   };  

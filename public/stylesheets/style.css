@@ -224,6 +224,7 @@ body{
     border-radius: 10px 10px 0 0;
     height: 12.5em;
     width: 15em;
+    object-fit: contain;
 }
 .card-title{
     padding: 10px 0;

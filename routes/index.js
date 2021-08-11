@@ -33,6 +33,11 @@ router.get('/products/categoriaDos', async (req, res) => {
   const wines = await api.filterDos();
   res.render('pages/products', { wines, logueado });
 });
+router.get('/products/categoriaTres', async (req, res) => {
+  let logueado = req.session.loggedin;
+  const wines = await api.filterTres();
+  res.render('pages/products', { wines, logueado });
+});
 /* ------------------------productos ------------------------- */
 router.get('/products', async (req, res) => {
   let logueado = req.session.loggedin;

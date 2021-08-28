@@ -47,6 +47,7 @@
                     <li class="item-category"><a href="/products/categoriaUno" class="item-category-link">Tintos</a></li>
                     <li class="item-category"><a href="/products/categoriaDos" class="item-category-link">Blancos</a></li>
                     <li class="item-category"><a href="/products/categoriaTres" class="item-category-link">Espumantes</a></li>
+                    <li class="item-category"><a href="/products/categoriaDestilados" class="item-category-link">Destilados</a></li>
                 </ul>
                 <h1 class="title-category">Filtros</h1>
                 <% if (locals.filterVariety) { %>
@@ -62,6 +63,11 @@
                 <% } %>                
             </div>
             <div class="product">
+                <% if (wines == 0) { %>
+                    <div class="container-filter">
+                        <p class="card-text">Lo siento, estamos renovando el stock!!</strong><a class="delete-filter" href="/products">&#10060;</a></p>  
+                    </div>
+                <% } %>
                 <% if (locals.searchWine) { %>
                     <div class="container-filter">
                         <p class="card-text">Buscando por: <strong><%= searchWine %></strong><a class="delete-filter" href="/products">&#10060;</a></p>  
@@ -76,8 +82,12 @@
                           <% if (filter == wine.variedad) { %>
                             <div class="card">
                                 <img src="<%= wine.url %>" alt="" class="img-card">
-                                <div class="card-body">
-                                    <h2 class="card-title">$ <%= wine.precio %></h2>
+                                <div class="card-body">                                    
+                                    <% if (wine.tipo === "Destilado") { %>
+                                        <h2 class="py-2"><strong>Sin stock</strong></h2>                                    
+                                    <% } else {%>
+                                        <h2 class="card-title">$ <%= wine.precio %></h2>                    
+                                    <% } %>
                                     <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
                                     <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                                 </div>
@@ -90,7 +100,11 @@
                         <div class="card">
                             <img src="<%= wine.url %>" alt="" class="img-card">
                             <div class="card-body">
-                                <h2 class="card-title">$ <%= wine.precio %></h2>
+                                <% if (wine.tipo === "Destilado") { %>
+                                    <h2 class="py-2"><strong>Sin stock</strong></h2>                                    
+                                <% } else {%>
+                                    <h2 class="card-title">$ <%= wine.precio %></h2>                    
+                                <% } %>
                                 <p class="card-text-product" title="<%= wine.nombre %>"><%= wine.nombre %></p>
                                 <button class="btn btn-buy"><a href="/product/<%= wine.id %>" class="bread-item-link active card-text">Ver producto</a></button>
                             </div>

@@ -27,21 +27,25 @@
             </div>
             <div class="card-body">
                 <h1 class="py-2"><%= wine.nombre %></h1>
-                <h2 class="py-2"><strong>$</strong> <%= wine.precio %></h2>
-                <h2 class="py-2"><a href="mailto:thewinesclublbye@gmail.com?Subject=Interesado%20en%20el%20producto%20<%= wine.nombre %>" class="btn btn-add">Comprar</a></h2>
+                <% if (wine.tipo === "Destilado") { %>
+                    <h2 class="py-2"><strong>Sin stock</strong></h2>
+                    <h2 class="py-2"><a href="https://wa.me/5493385436246?text=Hola,%20me%20interesa%20reservar%20el%20producto%20<%= wine.nombre %>%20(<%= wine.variedad %>)" class="btn btn-add">Reservar</a></h2>
+                <% } else {%>
+                    <h2 class="py-2"><strong>$</strong> <%= wine.precio %></h2>
+                    <h2 class="py-2"><a href="https://wa.me/5493385436246?text=Hola,%20me%20interesa%20el%20producto%20<%= wine.nombre %>%20(<%= wine.variedad %>)" class="btn btn-add">Comprar</a></h2>
+                <% } %>
                 <p class="py-2"><strong>Tipo de vino</strong></p>
                 <p class="py-2"><%= wine.tipo %></p>
                 <p class="py-2"><strong>Variedad</strong></p>
                 <p class="py-2"><%= wine.variedad %></p>
                 <p class="py-2"><strong>Descripcion</strong></p>
                 <ul class="contact-list">
-                <% wine.descripcion.split(",").forEach(item => {  %>
-                    <% if (item != "") { %>
-                        <li class="contact-item py-2"><span class="px-2">&#127863;</span><%= item %></li>
+                    <% if (wine.descripcion != "") { %>
+                        <li class="contact-item py-2"><%= wine.descripcion %></li>
                     <% } else {%>
                         <li class="contact-item"><span class="px-2">&#10006;</span>No fueron especificadas</li>
                     <% } %>
-                <% }) %>
+                
                 </ul>
                 <p class="py-2"><strong>Caracteristicas</strong></p>
                 <ul class="contact-list">

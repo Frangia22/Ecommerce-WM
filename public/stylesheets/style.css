@@ -478,7 +478,18 @@ th, td{
     filter: none;
     transform: translate(10px, -10px);
 }
-/* ------------ Newsletter ----------------*/
+/* ------------ Newsletter / Derechos reservados ----------------*/
+.news {
+    align-content: end;
+    display: grid;
+}
+.link-port {
+    text-decoration: none;
+    color: black;
+}
+.link-port:hover {
+    font-weight: bold;
+}
 .form-news{
     display: inline-block;
     font-size: 0;
@@ -832,6 +843,9 @@ button.close {
     .footer{
         display: grid;
         grid-template-columns: 1fr;        
+    }
+    .news {
+        padding-left: 15px;
     }
     .form-news{
         margin: auto 30px;        

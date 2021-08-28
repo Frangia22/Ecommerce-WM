@@ -107,6 +107,20 @@ const filterTres = async () => {
     });
     return filterWine;
 }
+const filterDestilados = async () => {
+    const filterWine = await db.products.findAll({
+        where: {
+            [Op.or]: [
+                { tipo: "destilado" },
+                { tipo: "destilados" }
+              ]
+        }
+    })
+    .then(result => {
+        return result;
+    });
+    return filterWine;
+}
 //Traigo todas las variedades de vinos
 const getWineVariety = async () => {
     // Select Distinct('variedad') from 'products'
@@ -165,6 +179,7 @@ module.exports = {
     filterUno,
     filterDos,
     filterTres,
+    filterDestilados,
     getWineVariety,
     findWineByTitle,
     findLastWine,

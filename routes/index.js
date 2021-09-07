@@ -129,8 +129,8 @@ router.get('/agregar', (req, res) => {
 /* ------------------------ Agregar productos "Post" ------------------------- */
 router.post('/agregar', async (req, res) => {
   let logueado = req.session.loggedin;
-  const {nombre, tipo, precio, url, variedad, descripcion, caracteristicas} = req.body
-  await api.addWines(nombre, tipo, precio, url, variedad, descripcion, caracteristicas);
+  const {nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP} = req.body
+  await api.addWines(nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP);
   const wines = await api.getWines();
   res.render('pages/productsList',{ message: 'Producto agregado correctamente', wines, logueado});
 });
@@ -145,8 +145,8 @@ router.get('/editar/:id', async (req, res) => {
 router.post('/editar/:id', async (req, res) => {
   console.log(req.params.id);
   const id = req.params.id;
-  const {nombre, tipo, precio, url, variedad, descripcion, caracteristicas} = req.body
-  await api.updateWine(id,nombre, tipo, precio, url, variedad, descripcion, caracteristicas);
+  const {nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP} = req.body
+  await api.updateWine(id,nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP);
   res.redirect('/products/list');
 });
 /* Eliminar productos "GET" ------------------------- */

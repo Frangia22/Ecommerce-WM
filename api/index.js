@@ -31,7 +31,7 @@ const getWinesCount = async (page) => {
     return count, rows;
 };
 //Agregar un producto
-const addWines = async (nombre, tipo, precio, url, variedad, descripcion, caracteristicas) => {
+const addWines = async (nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP) => {
     const wine = await db.products.create({
         nombre,
         tipo,
@@ -39,7 +39,8 @@ const addWines = async (nombre, tipo, precio, url, variedad, descripcion, caract
         url,
         variedad,
         descripcion,
-        caracteristicas
+        caracteristicas,
+        linkMP
     });
     return wine;
 };
@@ -53,8 +54,8 @@ const getWineById = async(id) => {
 };
 //Hacer un Update con los datos que me muestra
 // Solucion error Missing parameter option where , para solucionarlo agrega todos los campos de la db que tenia que actualizar
-const updateWine = async (id, nombre, tipo, precio, url, variedad, descripcion, caracteristicas) => {
-    const wine = await db.products.update({nombre, tipo, precio, url, variedad, descripcion, caracteristicas}, {
+const updateWine = async (id, nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP) => {
+    const wine = await db.products.update({nombre, tipo, precio, url, variedad, descripcion, caracteristicas, linkMP}, {
         where: {
           id
         }

@@ -33,6 +33,8 @@
                 <% } else {%>
                     <h2 class="py-2"><strong>$</strong> <%= wine.precio %></h2>
                     <h2 class="py-2"><a href="https://wa.me/5493385436246?text=Hola,%20me%20interesa%20el%20producto%20<%= wine.nombre %>%20(<%= wine.variedad %>)" class="btn btn-add">Comprar</a></h2>
+                    <h2 class="py-2"><a href="<%= wine.linkMP %>" target="_blank" class="btn btn-add">Pagar con MP</a></h2>
+                    <small>&#9888; Si paga con Mercado pago tiene un recargo</small>
                 <% } %>
                 <p class="py-2"><strong>Tipo de vino</strong></p>
                 <p class="py-2"><%= wine.tipo %></p>

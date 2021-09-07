@@ -36,6 +36,7 @@
                         <th class="hide-field">Tipo</th>
                         <th class="hide-field">Variedad</th>
                         <th class="hide-field">Precio</th>
+                        <th class="hide-field">Link MP</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -47,6 +48,7 @@
                         <td class="hide-field"><%= wine.tipo %></td>
                         <td class="hide-field"><%= wine.variedad %></td>
                         <td class="hide-field"><%= wine.precio %></td>
+                        <td class="hide-field"><%= wine.linkMP %></td>
                         <td>
                             <a class="hide-field btn btn-edit" href="/editar/<%= wine.id %>">Editar</a>
                             <a class="hide-field btn btn-delete" href="/eliminar/<%= wine.id %>">Eliminar</a>
@@ -74,6 +76,10 @@
                                     <li class="list-item">
                                         <p class="card-text"><strong>Precio</strong></p>
                                         <p class="card-text">$ <%= wine.precio %></p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="card-text"><strong>Link MP</strong></p>
+                                        <p class="card-text">$ <%= wine.linkMP %></p>
                                     </li>
                                     <li class="list-item">
                                         <p class="card-text"><strong>Descripcion</strong></p>

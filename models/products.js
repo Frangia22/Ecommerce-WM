@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
         url: DataTypes.STRING(150),
         variedad: DataTypes.STRING(100),
         descripcion: DataTypes.STRING(200),
-        caracteristicas: DataTypes.STRING(200)
+        caracteristicas: DataTypes.STRING(200),
+        linkMP: DataTypes.STRING(150),
     },
     {
         freezeTableName: true,
